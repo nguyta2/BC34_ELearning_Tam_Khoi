@@ -1,0 +1,29 @@
+Phần 1: Học viên sẽ được giao một trong các dự án bên dưới Ø Dự án elearning: • https://tinyurl.com/muc8t7rw • https://elearningnew.cybersoft.edu.vn/swagger/index.html
+	w 12/11/22
+	Ø Set up project
+		Done
+	Ø Chia layout
+	1. Trang chu
+		○ Tam
+			§ Header: /src/templates/users/Header.jsx
+			§ Dùng api xem tìm kiếm kháo học lấy 8 khóa đầu tiên
+			=> API(1)
+			Dùng api Lấy danh mục khóa học Load ra tạo navlink link qua trang danh muc khoa hoc
+			=> API (2)
+			Dùng api LayKhoaHocTheoDanhMuc
+			=> API (3)
+			Dùng api (7) đăng ký khóa học cho nút đăng ký  navlink qua trang chi tiết kèm theo tham số mã khóa học
+			=> API (7)
+		
+		○ Khoi
+			§ Footer: /src/templates/users/Footer.jsx
+			Lấy thong tin nguoi dung tu o search => Chuyển hướng sang page timkiemkhoahoc => render lại body
+			Dùng api tìm kiếm khóa học
+			=> API (1) 
+			Gắn navlink link qua trang chi tiết
+			Dựa vào tham số => lấy từ url gọi api Lấy chi tiết khóa học => Load nội dung
+			=> API (1.1)
+			Gọi api dangky
+			API (4)
+			
+ 19/11/22
