@@ -1,15 +1,12 @@
 //redux toolkit
-import { configureStore } from '@reduxjs/toolkit'
-import demoReducer from './reducers/demoReducer';
-
+import { configureStore } from "@reduxjs/toolkit";
+import CoursesReducer from "./reducers/CoursesReducer";
 
 export const store = configureStore({
   reducer: {
-    demoReducer
+    CoursesReducer,
   },
-})
-
-
+});
 
 //redux
 // import { combineReducers, createStore } from 'redux';
