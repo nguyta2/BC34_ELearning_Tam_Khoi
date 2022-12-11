@@ -30,7 +30,7 @@ export default function TrangChu() {
           })}
         </div>
       </div> */}
-      <CourseList/>
+      <CourseList />
     </div>
   );
 }

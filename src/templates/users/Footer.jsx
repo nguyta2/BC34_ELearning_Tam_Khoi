@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div>
+    <div className="mt-4">
       <footer
         id="footer"
         className="site-footer text-left bg-black text-white"
@@ -15,7 +15,7 @@ export default function Footer() {
             <div className="col-sm-4 pt-3">
               <div id="zn_mailchimp-2" className="widget widget_zn_mailchimp">
                 <div className="text-base">
-                  <img  src="./cyberlogo-white.png"/>
+                  <img src="./cyberlogo-white.png" />
                   <p className="text-white">
                     CyberSoft Academy - Hệ thống đào tạo lập trình chuyên sâu
                     theo dự án thực tế.
@@ -41,14 +41,13 @@ export default function Footer() {
                           type="text"
                           name="mc_email"
                           className="nl-email kl-newsletter-field form-control js-mcForm-email "
-                        
                           placeholder="your.address@email.com"
                         />
                       </span>
                       <span className="float-left">
-                      <button class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">
-  ĐĂNG KÝ
-</button>
+                        <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">
+                          ĐĂNG KÝ
+                        </button>
                       </span>
                     </div>
 
@@ -139,13 +138,11 @@ export default function Footer() {
                                 <div className="dhvc-form-group dhvc-form-hoten-box dhvc_form_text ">
                                   <div className="dhvc-form-input  dhvc-form-has-add-on">
                                     <input
-                                  className="col-sm-10"
+                                      className="col-sm-10"
                                       name="hoten"
-                                   
                                       aria-required="true"
                                       placeholder="Họ và tên *"
                                     />
-                                
                                   </div>
                                   <span
                                     role="alert"
@@ -163,13 +160,11 @@ export default function Footer() {
                                 <div className="dhvc-form-group dhvc-form-email-box dhvc_form_email ">
                                   <div className="dhvc-form-input  dhvc-form-has-add-on">
                                     <input
-                                  className="col-sm-10"
+                                      className="col-sm-10"
                                       name="email"
-                                     
                                       aria-required="true"
                                       placeholder="Email liên hệ *"
                                     />
-                                   
                                   </div>
                                   <span
                                     role="alert"
@@ -187,14 +182,12 @@ export default function Footer() {
                                 <div className="dhvc-form-group dhvc-form-sodienthoai-box dhvc_form_text ">
                                   <div className="dhvc-form-input  dhvc-form-has-add-on">
                                     <input
-                                    className="col-sm-10"
+                                      className="col-sm-10"
                                       id="dhvc_form_control_sodienthoai"
                                       name="sodienthoai"
-                                    
                                       aria-required="true"
                                       placeholder="Điện thoại liên hệ *"
                                     />
-                                    
                                   </div>
                                   <span
                                     role="alert"
@@ -218,9 +211,9 @@ export default function Footer() {
                                   defaultValue="03AEkXODAnSaysu8GoeK4cNRQ4B6HfCLTX1CbZErxHtnU9R_V5-d479naOjmktNrAKjjOTpn-K5mpapDp0iB8LF9xK9UOS4lGvhppky1zazNs8KX_7dmOEkQ5aUTjPVYVWJPQ_dPij-y_3AGErSFwCY50D9Tec-9qoQR-MHV2DUanLng0rbbiDpEWdimA7UDcAPOlNkP1PhIm829IDSpUCNqP-pDlfazQ96m6u4_ylXAhiYUFOoWkx-1VQGWVPTkZslR4W15-WmTQ_jn3xUqfrjXUXz8QoylQaJY08sDSB21wjTdUpUZ-YoIXp7OPuP28xnN9zGvrac99ehQv6ja5D_1VEf69gxGIHojjf-PmcoQHKmcsnTl9Jpd2gZugG01t4c7_dMqUW0KV7MfR_RTLhXTnP1OPgW5Hr8GanTh_sWL01_YkXgiVc-d_fXoIgLpgzRUaPVakxvT0ukWPrzsax4sQocggMIaUngstGmyNz1Jg7uDLSnmZb-xYgXeEOGKdnsPIkHHfx6MtDRxRSaEjyFRnY0WJnJdeF-Hes7jWoqP8UqUqsLiDH9-Ds9ybhRMm6VeRaTHVTot_D-xBr2LWFEK78u2XUIkx5Hw"
                                 />
                                 <div className="dhvc-form-action dhvc_form_submit_button ">
-                                <button class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">
-  ĐĂNG KÝ TƯ VẤN
-</button>
+                                  <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">
+                                    ĐĂNG KÝ TƯ VẤN
+                                  </button>
                                   <p className="pt-6">
                                     Lập trình Front End Lập trình React JS Lập
                                     trình React Angular Lập trình tư duy Lập
@@ -277,8 +270,7 @@ export default function Footer() {
                         data-testid="fb:page Facebook Social Plugin"
                         title="fb:page Facebook Social Plugin"
                         frameBorder={0}
-                        allowTransparency="true"
-                        allowFullScreen="true"
+                        allowFullScreen={true}
                         scrolling="no"
                         allow="encrypted-media"
                         src="https://www.facebook.com/v2.12/plugins/page.php?adapt_container_width=true&app_id=&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df110360dfb7908%26domain%3Dcybersoft.edu.vn%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fcybersoft.edu.vn%252Ff112ba2d8de5438%26relation%3Dparent.parent&container_width=0&height=325&hide_cover=false&hide_cta=false&href=https%3A%2F%2Fwww.facebook.com%2Flophocviet%2F&locale=vi_VN&sdk=joey&show_facepile=false&small_header=false&tabs=timeline&width=340"
@@ -288,20 +280,20 @@ export default function Footer() {
                           width: 340,
                           height: 325,
                         }}
-                        className
                       />
                     </span>
-                    <div style={{width:340}} className='text-left'>
-                    <p className="pt-6 text-base"> Anh ngữ giao tiếp - Khởi động Anh ngữ giao tiếp - Lấy đà Anh ngữ giao tiếp - Bật nhảy Anh ngữ giao tiếp - Bay trên không Anh ngữ giao tiếp - Tiếp đất</p>
+                    <div style={{ width: 340 }} className="text-left">
+                      <p className="pt-6 text-base">
+                        {" "}
+                        Anh ngữ giao tiếp - Khởi động Anh ngữ giao tiếp - Lấy đà
+                        Anh ngữ giao tiếp - Bật nhảy Anh ngữ giao tiếp - Bay
+                        trên không Anh ngữ giao tiếp - Tiếp đất
+                      </p>
                     </div>
-                    
                   </div>
-                  
                 </div>
                 {/* End Simple Facebook Page Plugin (Widget) */}
-               
               </div>
-            
             </div>
           </div>
           {/* end row */}

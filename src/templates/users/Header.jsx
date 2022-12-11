@@ -3,14 +3,20 @@ import { DownOutlined } from "@ant-design/icons";
 import { Dropdown, Space } from "antd";
 import { getApiSessionsType } from "../../redux/reducers/CoursesReducer";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
   const items = useSelector((state) => state.CoursesReducer.coursesType);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getApiSessionsType);
   }, []);
+
+  const handleMenuClick = (e) => {
+    return navigate(`/DanhMucKhoaHoc?word=${e.key}`);
+  };
 
   return (
     <header className="p-4 dark:bg-gray-800 dark:text-gray-100">
@@ -33,6 +39,7 @@ export default function Header() {
             <Dropdown
               menu={{
                 items,
+                onClick: handleMenuClick,
               }}
             >
               <a
@@ -79,7 +86,12 @@ export default function Header() {
         </ul>
         <div className="items-center flex-shrink-0 hidden lg:flex">
           <button className="self-center px-8 py-3 rounded">Sign in</button>
-          <button className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900">
+          <button
+            onClick={() => {
+              return navigate(`/dangky`);
+            }}
+            className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
+          >
             Sign up
           </button>
         </div>

@@ -5,6 +5,7 @@ import axios from "axios";
 const initialState = {
   courses: [],
   coursesType: [],
+  coursesBasedOnCourseType: [],
 };
 
 const CoursesReducer = createSlice({
@@ -24,11 +25,15 @@ const CoursesReducer = createSlice({
         return coursesType;
       });
     },
+    getCoursesBasedOnCourseType: (state, { type, payload }) => {
+      state.coursesBasedOnCourseType = payload;
+    },
   },
 });
 
 //quản lý actions
-export const { getCourses, getCoursesType } = CoursesReducer.actions;
+export const { getCourses, getCoursesType, getCoursesBasedOnCourseType } =
+  CoursesReducer.actions;
 
 export default CoursesReducer.reducer;
 
@@ -41,7 +46,7 @@ export const getApiSessionsType = async (dispatch) => {
         TokenCybersoft: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCAzNCIsIkhldEhhblN0cmluZyI6IjI3LzA0LzIwMjMiLCJIZXRIYW5UaW1lIjoiMTY4MjU1MzYwMDAwMCIsIm5iZiI6MTY1MzU4NDQwMCwiZXhwIjoxNjgyNzAxMjAwfQ.WXYIKeb4x0tXpYflgrnKFbivOnuUdLmKcgl7Xr0MD3I`,
       },
     });
-    console.log(apiSessionType.data);
+
     dispatch(getCoursesType(apiSessionType.data));
   } catch (err) {
     console.log(err);
@@ -62,6 +67,24 @@ export const getApiSessionsList = async (dispatch) => {
     console.log(err);
   }
 };
+
+export const getApiSessionListBasedOnSessionType =
+  (keyword) => async (dispatch) => {
+    try {
+      const apiSessionListBasedOnSessionType = await axios({
+        method: "GET",
+        url: `https://elearningnew.cybersoft.edu.vn/api/QuanLyKhoaHoc/LayKhoaHocTheoDanhMuc?maDanhMuc=${keyword}&MaNhom=GP01`,
+        headers: {
+          TokenCybersoft: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCAzNCIsIkhldEhhblN0cmluZyI6IjI3LzA0LzIwMjMiLCJIZXRIYW5UaW1lIjoiMTY4MjU1MzYwMDAwMCIsIm5iZiI6MTY1MzU4NDQwMCwiZXhwIjoxNjgyNzAxMjAwfQ.WXYIKeb4x0tXpYflgrnKFbivOnuUdLmKcgl7Xr0MD3I`,
+        },
+      });
+      dispatch(
+        getCoursesBasedOnCourseType(apiSessionListBasedOnSessionType.data)
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
 //setup redux thunk
 

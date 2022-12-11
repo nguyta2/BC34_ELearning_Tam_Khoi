@@ -1,5 +1,5 @@
 // useEffect gọi lifecycle 1 lần
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 // gọi api
 import axios from "axios";
 
@@ -36,7 +36,7 @@ export default function CourseList() {
         {ListCourse.map((item, index) => {
           if (index < 8) {
             return (
-              <div>
+              <div key={index}>
                 <Card
                   hoverable
                   style={{
@@ -51,9 +51,7 @@ export default function CourseList() {
                   }
                 >
                   <div>
-                    <h1 className="text-base truncate">
-                      {item.tenKhoaHoc}
-                    </h1>
+                    <h1 className="text-base truncate">{item.tenKhoaHoc}</h1>
                     <div className="d-flex justify-end">
                       <button className="bg-yellow-300 rounded-sm p-2 px-4 hover:text-white">
                         Đăng ký
