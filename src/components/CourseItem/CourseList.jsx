@@ -9,6 +9,10 @@ const { Meta } = Card;
 export default function CourseList() {
   const [ListCourse, setListCourse] = useState([]);
 
+  const handleRegistration = (item) => {
+    console.log(item);
+  };
+
   const getApiCourse = async () => {
     try {
       const apiCourse = await axios({
@@ -53,7 +57,10 @@ export default function CourseList() {
                   <div>
                     <h1 className="text-base truncate">{item.tenKhoaHoc}</h1>
                     <div className="d-flex justify-end">
-                      <button className="bg-yellow-300 rounded-sm p-2 px-4 hover:text-white">
+                      <button
+                        onClick={() => handleRegistration(item)}
+                        className="bg-yellow-300 rounded-sm p-2 px-4 hover:text-white"
+                      >
                         Đăng ký
                       </button>
                     </div>

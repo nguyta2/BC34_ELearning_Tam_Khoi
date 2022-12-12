@@ -23,7 +23,7 @@ export default function Header() {
       <div className="container flex justify-between items-center h-16 ">
         <a
           rel="noopener noreferrer"
-          href="#"
+          href="/"
           aria-label="Back to homepage"
           className="flex items-center p-2"
         >
