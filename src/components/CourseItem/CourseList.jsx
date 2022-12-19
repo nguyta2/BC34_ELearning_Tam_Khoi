@@ -4,13 +4,34 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import { Card, Button } from "antd";
+import { getLocal } from "../../utils/config";
 const { Meta } = Card;
 
 export default function CourseList() {
   const [ListCourse, setListCourse] = useState([]);
+  const userInfoLogin = getLocal("userInfoLogin");
 
-  const handleRegistration = (item) => {
-    console.log(item);
+  const handleRegistration = async (item) => {
+    const { maKhoaHoc } = item;
+    const { accessToken, taiKhoan } = userInfoLogin;
+    console.log(taiKhoan);
+    try {
+      const apiRegistration = await axios({
+        method: "POST",
+        url: "https://elearningnew.cybersoft.edu.vn/api/QuanLyKhoaHoc/DangKyKhoaHoc",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          TokenCybersoft: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCAzNCIsIkhldEhhblN0cmluZyI6IjExLzA0LzIwMjMiLCJIZXRIYW5UaW1lIjoiMTY4MTE3MTIwMDAwMCIsIm5iZiI6MTY1MzU4NDQwMCwiZXhwIjoxNjgxMzE4ODAwfQ.6MaQyPBJpHuP9gt-zQ3wDCEUtx0JNoWxu4k5gtCaUwY`,
+        },
+        data: {
+          maKhoaHoc,
+          taiKhoan,
+        },
+      });
+      alert(apiRegistration.data);
+    } catch (err) {
+      alert(err.response.data);
+    }
   };
 
   const getApiCourse = async () => {
