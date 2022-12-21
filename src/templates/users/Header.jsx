@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { DownOutlined } from "@ant-design/icons";
 import { Dropdown, Space } from "antd";
-import { getApiSessionsType } from "../../redux/reducers/CoursesReducer";
+import { callApiCourseType } from "../../redux/reducers/CoursesReducer";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -11,11 +11,15 @@ export default function Header() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    dispatch(getApiSessionsType);
+    dispatch(callApiCourseType);
   }, []);
 
   const handleMenuClick = (e) => {
     return navigate(`/DanhMucKhoaHoc?word=${e.key}`);
+  };
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
   };
 
   return (
@@ -77,6 +81,7 @@ export default function Header() {
                 <input
                   type="search"
                   name="Search"
+                  onChange={(event) => handleChange(event)}
                   placeholder="Tìm khoá học"
                   className="w-32 py-2 pl-10 text-sm rounded-md sm:w-auto focus:outline-none dark:bg-gray-800 dark:text-gray-100 focus:dark:bg-gray-900 focus:dark:border-violet-400"
                 />

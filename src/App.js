@@ -27,8 +27,8 @@ function App() {
           {/* user */}
           <Route path="/" element={<Layout />}>
             <Route index path="/" element={<TrangChu />} />
-            <Route path="/timkiem" element={<TimKiem />} />
-            <Route path="/chitietkhoahoc" element={<CourseDetail />} />
+            <Route index path="/timkiem" element={<TimKiem />} />
+            <Route index path="/chitietkhoahoc" element={<CourseDetail />} />
             <Route index path="/DanhMucKhoaHoc" element={<DanhMucKhoaHoc />} />
             <Route index path="/timkiem" element={<TimKiem />} />
             <Route

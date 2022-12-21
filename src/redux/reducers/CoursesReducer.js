@@ -38,7 +38,7 @@ export const { getAllCourses, getCoursesType, getCoursesBasedOnCourseType } =
 export default CoursesReducer.reducer;
 
 // QuanLyKhoaHoc/LayDanhMucKhoaHoc
-export const getApiSessionsType = async (dispatch) => {
+export const callApiCourseType = async (dispatch) => {
   try {
     const apiSessionType = await axios({
       method: "GET",
@@ -55,7 +55,7 @@ export const getApiSessionsType = async (dispatch) => {
 };
 
 // QuanLyKhoaHoc/LayDanhSachKhoaHoc
-export const getApiAllCourses = async (dispatch) => {
+export const callApiAllCourses = async (dispatch) => {
   try {
     const apiSessionList = await axios({
       method: "GET",
@@ -71,7 +71,7 @@ export const getApiAllCourses = async (dispatch) => {
 };
 
 // QuanLyKhoaHoc/LayKhoaHocTheoDanhMuc
-export const getApiSessionListBasedOnSessionType =
+export const callApiCourseListBasedOnCourseType =
   (keyword) => async (dispatch) => {
     try {
       const apiSessionListBasedOnSessionType = await axios({

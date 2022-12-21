@@ -1,20 +1,21 @@
 // useEffect gọi lifecycle 1 lần
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 // gọi api
 import axios from "axios";
-
-import { Card, Button } from "antd";
+import { Card } from "antd";
 import { getLocal } from "../../utils/config";
-const { Meta } = Card;
+import { callApiAllCourses } from "../../redux/reducers/CoursesReducer";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function CourseList() {
-  const [ListCourse, setListCourse] = useState([]);
+  const dispatch = useDispatch();
+  const allCourses = useSelector((state) => state.CoursesReducer.allCourses);
   const userInfoLogin = getLocal("userInfoLogin");
 
   const handleRegistration = async (item) => {
     const { maKhoaHoc } = item;
     const { accessToken, taiKhoan } = userInfoLogin;
-    console.log(taiKhoan);
+
     try {
       const apiRegistration = await axios({
         method: "POST",
@@ -34,31 +35,25 @@ export default function CourseList() {
     }
   };
 
-  const getApiCourse = async () => {
+  // redux thunk used to get all available courses
+  const getApiAllCourses = () => {
     try {
-      const apiCourse = await axios({
-        method: "GET",
-        url: "https://elearningnew.cybersoft.edu.vn/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc?MaNhom=GP01",
-        headers: {
-          TokenCybersoft: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCAzNCIsIkhldEhhblN0cmluZyI6IjI3LzA0LzIwMjMiLCJIZXRIYW5UaW1lIjoiMTY4MjU1MzYwMDAwMCIsIm5iZiI6MTY1MzU4NDQwMCwiZXhwIjoxNjgyNzAxMjAwfQ.WXYIKeb4x0tXpYflgrnKFbivOnuUdLmKcgl7Xr0MD3I`,
-        },
-      });
-      //console.log(apiCourse.data.content);
-      setListCourse(apiCourse.data);
+      dispatch(callApiAllCourses);
     } catch (err) {
       console.log(err);
     }
   };
 
   useEffect(() => {
-    getApiCourse();
+    getApiAllCourses();
   }, []);
 
   return (
     <div className="container mt-4">
       <h1 className="text-xl">Các khoá học mới nhất</h1>
       <div className="grid grid-cols-4 gap-4">
-        {ListCourse.map((item, index) => {
+        {allCourses.map((item, index) => {
+          // displaying 8 first courses
           if (index < 8) {
             return (
               <div key={index}>
