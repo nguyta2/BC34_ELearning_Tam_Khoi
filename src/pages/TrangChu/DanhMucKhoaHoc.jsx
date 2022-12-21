@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import CourseItem from "../../components/CourseItem/CourseItem";
 import useRoute from "../../hooks/useRoute";
 import { useDispatch, useSelector } from "react-redux";
 import { getApiSessionListBasedOnSessionType } from "../../redux/reducers/CoursesReducer";
@@ -42,11 +41,7 @@ export default function DanhMucKhoaHoc() {
         <h1 className="text-xl">Các khoá học phổ biến</h1>
         <div className="grid grid-cols-4 gap-4">
           {courses.map((item, index) => {
-            return (
-              <div key={index}>
-                <CourseItem item={item} />
-              </div>
-            );
+            return <div key={index}>{/* <CourseItem item={item} /> */}</div>;
           })}
         </div>
       </div>

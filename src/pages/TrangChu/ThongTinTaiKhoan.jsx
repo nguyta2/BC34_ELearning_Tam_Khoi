@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Layout, Button, Anchor } from "antd";
+import { Layout, Button } from "antd";
 import { getLocal } from "../../utils/config";
 import axios from "axios";
 import PersonalInfo from "../../components/PersonalInfo/PersonalInfo";
 import MyCourses from "../../components/MyCourses/MyCourses";
-const { Link } = Anchor;
+
 const { Content } = Layout;
 
 export default function ThongTinTaiKhoan() {

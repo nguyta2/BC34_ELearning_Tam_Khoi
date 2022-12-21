@@ -24,6 +24,7 @@ export default function MyCourses(props) {
         },
       });
       alert(callApiCourseCancellation.data);
+      console.log(props);
     } catch (err) {
       alert(err.response.data);
     }
@@ -44,8 +45,8 @@ export default function MyCourses(props) {
       </div>
       <table className="w-full mt-4">
         <tbody>
-          {courses &&
-            courses.map((course, index) => {
+          {courses.registeredCourses &&
+            courses.registeredCourses.map((course, index) => {
               return (
                 <tr key={index} className="border-t-2 border-slate-400">
                   <td className="w-64">
