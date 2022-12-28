@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import useRoute from "../../hooks/useRoute";
@@ -12,14 +11,12 @@ export default function TimKiem() {
     searchParams: [searchParams, setSearchParams],
   } = useRoute();
   const dispatch = useDispatch();
-  const coursesFromRedux = useSelector(
+  const courses = useSelector(
     (state) => state.CoursesReducer.coursesBasedOnCourseType
   );
   const keyWord = searchParams.has("tenkhoahoc")
     ? searchParams.get("tenkhoahoc")
     : "";
-
-  const [courses, setCourses] = useState([]);
 
   // console.log(keyWord);
   const getApiCourseListBasedOnCourseType = async () => {
@@ -35,18 +32,18 @@ export default function TimKiem() {
     getApiCourseListBasedOnCourseType();
   }, [keyWord]);
 
-  console.log(coursesFromRedux);
+  console.log(courses);
   return (
     <div className="container mt-4">
-      {coursesFromRedux ? (
+      {courses ? (
         <div>
           <h1 className="text-xl font-bold">
-            Tìm thấy {coursesFromRedux.length} khoá học {keyWord}
+            Tìm thấy {courses.length} khoá học {keyWord}
           </h1>
           <table className="w-full mt-4">
             <tbody>
-              {coursesFromRedux &&
-                coursesFromRedux.map((course, index) => {
+              {courses &&
+                courses.map((course, index) => {
                   return (
                     <tr key={index} className="border-t-2 border-slate-400">
                       <td className="w-64">
@@ -61,15 +58,6 @@ export default function TimKiem() {
                           {course.tenKhoaHoc}
                         </h1>
                         <p>{course.moTa}</p>
-                        <div className="flex justify-end">
-                          <button
-                            onClick={() => cancelCourseRegistration(course)}
-                            type="button"
-                            className="text-sm mr-20 border border-red-500 bg-red-500 text-white rounded-md px-4 py-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
-                          >
-                            Huỷ
-                          </button>
-                        </div>
                       </td>
                     </tr>
                   );
@@ -79,7 +67,7 @@ export default function TimKiem() {
         </div>
       ) : (
         <h1 className="text-xl font-bold">
-          Tìm thấy {coursesFromRedux.length} khoá học {keyWord}
+          Tìm thấy {courses.length} khoá học {keyWord}
         </h1>
       )}
     </div>

@@ -28,12 +28,19 @@ const CoursesReducer = createSlice({
     getCoursesBasedOnCourseType: (state, { type, payload }) => {
       state.coursesBasedOnCourseType = payload;
     },
+    setCoursesBasedOnCourseType: (state, { type, payload }) => {
+      state.coursesBasedOnCourseType = payload;
+    },
   },
 });
 
 //quản lý actions
-export const { getAllCourses, getCoursesType, getCoursesBasedOnCourseType } =
-  CoursesReducer.actions;
+export const {
+  getAllCourses,
+  getCoursesType,
+  getCoursesBasedOnCourseType,
+  setCoursesBasedOnCourseType,
+} = CoursesReducer.actions;
 
 export default CoursesReducer.reducer;
 
@@ -85,7 +92,7 @@ export const callApiCourseListBasedOnCourseType =
         getCoursesBasedOnCourseType(apiSessionListBasedOnSessionType.data)
       );
     } catch (err) {
-      console.log(err);
+      dispatch(setCoursesBasedOnCourseType([]));
     }
   };
 

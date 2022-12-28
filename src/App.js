@@ -16,6 +16,7 @@ import DanhMucKhoaHoc from "./pages/TrangChu/DanhMucKhoaHoc";
 import DangKy from "./pages/TrangChu/DangKy";
 import DangNhap from "./pages/TrangChu/DangNhap";
 import ThongTinTaiKhoan from "./pages/TrangChu/ThongTinTaiKhoan";
+import ChiTietKhoaHoc from "./pages/ChiTietKhoaHoc/ChiTietKhoaHoc";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route index path="/TimKiemKhoaHoc" element={<TimKiemKhoaHoc />} />
             <Route index path="/chitietkhoahoc" element={<CourseDetail />} />
             <Route index path="/DanhMucKhoaHoc" element={<DanhMucKhoaHoc />} />
+            <Route index path="/chitietkhoahoc" element={<ChiTietKhoaHoc />} />
             <Route
               index
               path="/thongtintaikhoan"
