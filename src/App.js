@@ -9,7 +9,7 @@ import { history } from "./utils/history";
 import LayoutAdmin from "./templates/admins/LayoutAdmin";
 import Layout from "./templates/users/Layout";
 import TrangChu from "./pages/TrangChu/TrangChu";
-import TimKiem from "./pages/TimKiem/TimKiem";
+import TimKiemKhoaHoc from "./pages/TimKiem/TimKiemKhoaHoc";
 import NotFound from "./pages/NotFound";
 import CourseDetail from "./components/CourseItem/CourseDetail";
 import DanhMucKhoaHoc from "./pages/TrangChu/DanhMucKhoaHoc";
@@ -27,10 +27,9 @@ function App() {
           {/* user */}
           <Route path="/" element={<Layout />}>
             <Route index path="/" element={<TrangChu />} />
-            <Route index path="/timkiem" element={<TimKiem />} />
+            <Route index path="/TimKiemKhoaHoc" element={<TimKiemKhoaHoc />} />
             <Route index path="/chitietkhoahoc" element={<CourseDetail />} />
             <Route index path="/DanhMucKhoaHoc" element={<DanhMucKhoaHoc />} />
-            <Route index path="/timkiem" element={<TimKiem />} />
             <Route
               index
               path="/thongtintaikhoan"

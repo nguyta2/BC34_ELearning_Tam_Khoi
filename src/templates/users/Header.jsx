@@ -1,25 +1,35 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { DownOutlined } from "@ant-design/icons";
 import { Dropdown, Space } from "antd";
 import { callApiCourseType } from "../../redux/reducers/CoursesReducer";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useDebounce } from "use-debounce";
 
 export default function Header() {
   const items = useSelector((state) => state.CoursesReducer.coursesType);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const [searchTerms, setSearchTerms] = useState("");
+  const [value] = useDebounce(searchTerms, 500);
+
+  const handleChange = (e) => {
+    setSearchTerms(e.target.value);
+  };
+
   useEffect(() => {
     dispatch(callApiCourseType);
   }, []);
 
+  useEffect(() => {
+    if (value !== "") {
+      return navigate(`/TimKiemKhoaHoc?tenkhoahoc=${value}`);
+    }
+  }, [value]);
+
   const handleMenuClick = (e) => {
     return navigate(`/DanhMucKhoaHoc?word=${e.key}`);
-  };
-
-  const handleChange = (e) => {
-    console.log(e.target.value);
   };
 
   return (
